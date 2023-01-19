@@ -105,7 +105,7 @@ class AddressBook(UserDict):
 
     def iterator(self):
         for item in self.data.values():
-            yield item.get_contact()
+            yield Record.__repr__()
     
     def search(self, data):
         result = ""
