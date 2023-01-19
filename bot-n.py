@@ -103,10 +103,31 @@ class AddressBook(UserDict):
     def add_record(self, record: Record) -> None:
         self.data[record.name.value] = record
 
-    def iterator(self):
+    def iterator(self, n=2):
+        self.n = n  
+        index = 0
+        print_block = '-' * 50 + '\n'
         for record in self.data.values():
-            yield record.__repr__()
-    
+            index += 1
+            if index < n:
+                index += 1
+                yield record.___repr___()
+            else:
+                index = 0
+                yield '-' * 50 + '\n'
+        yield '-' * 50 + '\n'
+           
+    def next(self, n=2):
+        result = "List of all users:\n"
+        print_list = self.iterator(n)
+        for item in print_list:
+            result += f"{item}"
+        return result
+
+
+
+
+
     def search(self, data):
         result = ""
         for record in self.data.values():
