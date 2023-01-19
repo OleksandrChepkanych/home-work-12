@@ -104,8 +104,8 @@ class AddressBook(UserDict):
         self.data[record.name.value] = record
 
     def iterator(self):
-        for item in self.data.values():
-            yield Record.__repr__()
+        for record in self.data.values():
+            yield record.__repr__()
     
     def search(self, data):
         result = ""
